@@ -1,0 +1,123 @@
+Prac1
+a) Create and Manage Cloud using SCVMM 2019
+b) Deploy a guarded host fabric using Microsoft SCVMM 2019
+
+Step 1: Click VMs and Services > Create > Create Cloud, to open the Create Cloud 
+Wizard.
+Step 2: In General, specify a Name and optional description for the cloud.
+Step 3: Specify whether the cloud will support shielded VMs.
+Step 4: In Resources > Host groups, select the groups you want to add to the cloud. Then 
+click Next.
+Step 5: In Logical Networks, select each logical network that you want to make available to 
+the private cloud, and then click Next.
+Step 6: In Load Balancers, select each load balancer that you want to make available to this 
+private cloud, and then click Next.
+Step 7: In VIP Templates, select each VIP template that you want to make available to the 
+private cloud, and then click Next.
+Step 8: In Port Classifications, select each port classification that you want to make 
+available to the cloud, and then click Next.
+Step 9: In Storage, if you have storage managed by VMM, select each storage classification 
+that you want to make available to the private cloud, and then click Next.
+Step 10: In Library > Stored VM path, browse and select the library share you want to use 
+for the self-service users to store VMs. Click OK.
+Step 11: In Read-only library shares > Add, select one or more library shares where 
+administrators can provide read-only resources to cloud users. Click OK and then click Next.
+Step 12: In Capacity, set capacity limits for the private cloud, and then click Next.
+Step 13: In Capability Profiles, select each virtual machine capability profile that you want 
+to add, and then click Next. Select the capability profiles that match the type of hypervisor 
+platforms that are running in the selected host groups. The built-in capability profiles 
+represent the minimum and maximum values that can be configured for a virtual machine for 
+each supported hypervisor platform.
+Step 14: In Replication Groups, select the replication groups for the private cloud, and 
+click Next.
+Step 15: In Summary page, confirm the settings, and then click Finish.
+Step 16: View status in Jobs and ensure the job is complete.
+
+B]deploy guarded
+
+Step 1 - Verify HGS prerequisites
+Step 2 - Configure first HGS node
+Step 3 - Configure additional HGS nodes
+Step 4 - Configure fabric DNS
+Step 5 - Verify host prerequisites (Key) and Verify host prerequisites (TPM)
+Step 6 - Create host key (Key) and Collect host information (TPM)
+Step 7 - Configure HGS with host information
+Step 8 - Confirm hosts can attest
+Step 9 - Configure VMM (optional)
+Step 10 - Create template disks
+Step 11 - Create a VM shielding helper disk for VMM (optional)
+Step 12 - Set up Windows Azure Pack (optional)
+Step 13 - Create shielding data file
+Step 14 - Create shielded VMs using Windows Azure Pack
+Step 15 - Create shielded VMs using VMM
+
+###########################################################################################
+prac 9 Install and Deploy DPM
+  
+Install and Deploy DPM
+
+i. Install DPM
+1. If required, extract the DPM 2016.exe (for DPM 2016)/DPM 2019.exe (for DPM 
+2019) file onto the machine on which you want to run DPM. To do this, run the exe 
+file, and on the Welcome screen, select Next. In Select Destination Location, specify 
+where you want to extract the installation files to. In Ready to Extract, select Extract. 
+After the extraction finishes, go to the specified location and run Setup.exe.
+2. On the Welcome page of DPM Setup, select Next. On the License Terms page, accept 
+the agreement > OK.
+3. On the Prerequisites Check page, wait for the check and resolve any issues before 
+proceeding.
+4. On the Product Registration page, select Next. On the Microsoft Update OptIn page, choose whether you want to include DPM in your Microsoft Updates.
+5. On the Summary of Settings page, check the settings and select Install. After the 
+installation is completed, select Close. It will automatically launch a Windows update 
+
+ii. Deploy the DPM protection agent
+1. After you've installed the DPM agent manually, you'll need to attach the agent to the 
+DPM server
+2. In the DPM Administrator Console, on the navigation bar, 
+select Management > Agents. In the Actions pane, select Install.
+3. On the Select Agent Deployment Method page, select Attach agents > Computer 
+on a trusted domain > Next. The Protection Agent Installation Wizard opens.
+4. On the Select Computers page, DPM displays a list of available computers in the 
+same domain as the DPM server. Select one or more computers (50 maximum) from 
+the Computer name list > Add > Next.
+5. If this is the first time you've used the wizard, DPM queries Active Directory to get a 
+list of potential computers. After the first installation, DPM displays the list of 
+computers in its database, which is updated once each day by the auto-discovery 
+process.
+6. To add multiple computers by using a text file, select the Add From File button, and 
+in the Add From File dialog box, type the location of the text file or select Browse to 
+navigate to its location.
+7. On the Enter Credentials page, type the username and password for a domain 
+account that is a member of the local Administrators group on all selected computers. 
+In the Domain box, accept or type the domain name of the user account that you're 
+using to install the protection agent on the target computer. This account may belong 
+to the domain that the DPM server is located in or to a trusted domain. If you're 
+installing a protection agent on a computer across a trusted domain, enter your current 
+domain user credentials. You can be a member of any trusted domain, and you must 
+be a member of the local Administrators group on all selected computers that you 
+want to protect.
+8. On the Summary page, select Attach.
+
+iii. Deploy protection groups 
+A System Center Data Protection Manager (DPM) protection group is a collection of data 
+sources such as volumes, shares, or application workloads, which have common backup and 
+restore settings. The protection group settings specify:
+Data sources - The servers, computers, and workloads you want to protect.
+Back-up storage - How the protected data should be backed up in the short-term and longterm.
+Recovery points - The recovery points from which replicated data can be recovered.
+Allocated disk space - The disk space allocated to data from the storage pool.
+Initial replication - How the initial replication of data should be handled using either over 
+the network or manually offline.
+Consistency checks - How the replicated data should be checked for consistency.
+
+iv. Configure firewall settings
+To open Windows Firewall, go to the Start menu, select Run, type WF.msc, and then 
+select OK.
+Keep default settings
+When you open the Windows Defender Firewall for the first time, you can see the default 
+settings applicable to the local computer. The Overview panel displays security settings for each type of network to which the device can connect.
+
+
+Maintain the default settings in Windows Defender Firewall whenever possible. These 
+settings have been designed to secure your device for use in most network scenarios. One key 
+example is the default Block behavior for Inbound connections
